@@ -1,3 +1,4 @@
+## Steps for automating image builds
 1. Run 
     ```sh
     az login
@@ -32,3 +33,11 @@
     az acr task create --name hello-world-task -f hello-world-task.yaml -c https://github.com/marquardts/test-acr.git --git-access-token `cat access.token`
     ```
    to create a task to execute the task definition in `hello-world-task.yaml` from the repo. By default, on-commit and base-image change triggers are active.
+
+## Caveats
+- Does not work with Github Enterprise
+   
+## Sources
+- https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-build-task
+- https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-reference-yaml
+- https://www.terraform.io/docs/providers/azurerm/r/container_registry.html
